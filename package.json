@@ -1,0 +1,116 @@
+{
+  "name": "anbima-ui-components",
+  "version": "1.3.1",
+  "private": true,
+  "main": "build/index.js",
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "2.1.8"
+  },
+  "peerDependencies": {
+    "node-sass": "^4.x",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "react-router-dom": "^5.x"
+  },
+  "scripts": {
+    "build": "webpack",
+    "build:analyzer": "ANALYZER=true npm run build",
+    "lint": "./node_modules/.bin/eslint src/ ",
+    "lint:fix": "./node_modules/.bin/eslint src/ *.js --fix",
+    "stylelint": "./node_modules/stylelint/bin/stylelint.js src/components/**/*.scss --syntax scss",
+    "stylelint:fix": "./node_modules/stylelint/bin/stylelint.js src/components/**/*.scss --syntax scss --fix",
+    "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage",
+    "test:coverage:watch": "npm run test:coverage -- --watch",
+    "test:jks": "CI=true npm run test",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prepare": "npm run build",
+    "complexity-report": "./node_modules/.bin/es6-plato -e .eslintrc -r -d ./report src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm run test:jks && npm run test:coverage"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/components/icon/ico-{*}",
+      "!src/components/old-components/**",
+      "!src/components/header/icon-left/**",
+      "!src/components/header/icon-right/**",
+      "!src/components/table/**",
+      "!src/components/router/**",
+      "!src/**/*.{stories.js}",
+      "!src/**/*.{_stories_.js}",
+      "!src/**/*.{_test.js}",
+      "!src/**/*.{_test_.js}",
+      "!src/**/*.{test_.js}",
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      },
+      "./src/components/**/*.js": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@storybook/addon-actions": "^5.0.3",
+    "@storybook/addon-info": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-links": "^5.0.3",
+    "@storybook/addons": "^5.0.3",
+    "@storybook/react": "^5.0.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "css-loader": "^2.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "es6-plato": "^1.2.3",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-import": "^2.17.1",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "file-loader": "^4.2.0",
+    "husky": "^1.1.2",
+    "loki": "^0.17.1",
+    "react-test-renderer": "^16.9.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-order": "^3.1.0",
+    "webpack": "4.28.3",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.6"
+  }
+}
