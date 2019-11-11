@@ -40,10 +40,5 @@ module.exports = {
   externals: {
     react: "commonjs react" // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   },
-  plugins: [process.env.ANALYZER && new BundleAnalyzerPlugin()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@utils": path.resolve(__dirname, "src", "utils")
-    }
-  }
+  plugins: [process.env.ANALYZER && new BundleAnalyzerPlugin()].filter(Boolean)
 };
