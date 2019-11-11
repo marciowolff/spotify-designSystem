@@ -1,5 +1,5 @@
 {
-  "name": "spotify-ui-components",
+  "name": "spotify-design-system",
   "version": "1.3.1",
   "main": "build/index.js",
   "dependencies": {
@@ -16,18 +16,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepare": "npm run build",
-    "complexity-report": "./node_modules/.bin/es6-plato -e .eslintrc -r -d ./report src"
+    "prepare": "npm run build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/plugin-transform-runtime": "^7.6.2",
